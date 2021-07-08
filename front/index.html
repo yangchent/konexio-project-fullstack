@@ -1,0 +1,37 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./css/styles.css" />
+
+		<title>Countries App</title>
+	</head>
+	<body>
+		<h1>Get the capital city </h1>
+
+		<div class="container">
+			<div class="form">
+				<input type="text" id="userSearchValue" placeholder="enter a country name or a capital"/>
+				<div>
+					<input type="radio" id="toSearchCountry" name="search" value="country">
+					<label for="country" class="l-radio">Country</label>
+				  </div>
+				  <div>
+					<input type="radio" id="toSearchCapital" name="search" value="capital">
+					<label for="capital" class="l-radio">Capital</label>
+				  </div>
+				<button id="btnShowData">Enter</button>
+			</div>
+
+			<div class="data">
+				<ul id="list"></ul>
+			</div>
+		</div>
+
+		<!-- JS files -->
+		<script src="./js/jQuery-3.6.js"></script>
+		<script src="./js/script.js"></script>
+	</body>
+</html>
