@@ -33,20 +33,14 @@ app.get("/:countryName", (req, res) => {
 		data: countryData,
 	});
 });
-app.get("/:countryCapital", (req, res) => {
-	// toLowerCase permet de mettre le string en minuscule pour effectuer la comparaison
-	// avec la liste des pays
-	const countryCapital = req.params.countryCapital.toLowerCase();
-
-	// On filtre les données des pays pour récupérer juste l'objet
-	// contenant le pays qui nous intéresse
-	const countryCapitalData = countriesData.filter(
-		(capital) => country.capital.toLowerCase() === countryCapital
+app.get("/capital/:capitalName", (req, res) => {
+	const capitalName = req.params.capitalName.toLowerCase();
+	const capitalData = countriesData.filter(
+		(country) => country.capital.toLowerCase() === capitalName
 	);
-
 	res.json({
 		status: "success",
-		data: countryCapitalData,
+		data: capitalData,
 	});
 });
 
@@ -56,3 +50,4 @@ app.get("/:countryCapital", (req, res) => {
 app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}`);
 });
+
