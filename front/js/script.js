@@ -18,22 +18,24 @@ function updateList(list) {
 	$("#list").empty();
 
 	// update the list 
-	if($("#toSearchCountry")[0].checked === true) {
-	list.forEach((country) =>
-		$("#list").append(
-			`<li class="card">
-             <p>${country.capital} </p>
-            </li>
-			`
-		))}
+		 if($("#toSearchCountry")[0].checked === true) {
+			list.forEach((country) =>
+				$("#list").append(
+					`<li class="card">
+            		 <p>${country.capital} </p>
+            		</li>
+					`
+			))
+		}
 		else if($("#toSearchCapital")[0].checked === true ) {
-		list.forEach((country) =>
-		$("#list").append(
-			`<li class="card">
-             <p>${country.name}</p>
-            </li>
-			`
-		))}
+			list.forEach((country) =>
+				$("#list").append(
+					`<li class="card">
+             		<p>${country.name}</p>
+            		</li>
+					`
+			))	
+		}
 	}
 //function to receive the request backend when clicked
 //in the button shows the value of the data input by user
@@ -48,11 +50,15 @@ async function handleClick() {
 			} 
 		else if($("#toSearchCapital")[0].checked === true ) {
 		        const userSearchValue = $("#userSearchValue").val();
-		    let res = await fetch(`http://localhost:3000/capital/${userSearchValue}`);
-		    let jsonRes = await res.json();
-		    console.log(jsonRes);
-		    updateList(jsonRes.data);
-		    }
+		    let res = await fetch(`http://localhost:3000/capital/${userSearchValue}`)
+			let jsonRes = await res.json();
+				if ( res == userSearchValue){
+					console.log(jsonRes);
+		    		updateList(jsonRes.data);
+		    		
+				  }
+				  else {
+					alert("error")
+				  }
 		}
-	
-
+	}	
